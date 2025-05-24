@@ -6,15 +6,6 @@ terminal bookmarks  - the last bookmarking app you'll need.
 - Bash (or zsh)
 - grep (standard on Unix-like systems)
 
-## Quick Start
-
-```sh
-git clone <repo-url>
-cd bookmarks
-./bm add "https://example.com" -c "example description"
-./bm get "example"
-```
-
 ## Installation
 
 ```sh
@@ -83,4 +74,27 @@ bm is powered by ripgrep and gets translated to rg -i under the hood
 
 ## Future work
 
-- export as a brew package
+- data portability
+
+bm list just lists all you bookmarks 
+
+```sh
+$ bm list
+
+https://outlook.office.com/mail/ # outlook
+
+https://diataxis.fr/ # documentation on documentation
+
+```sh
+$ bm import file path/to/bookmarks/file
+
+concatenates the file path/to/bookmarks/file to the existing store of data
+```
+
+
+## Issues
+
+Now that it's a package rather than a repo, it's much harder to edit my bookmarks store. I can think of a few solutions
+
+1. find the place where bookmarks are kept and just use that - issue with this is that it might not be consistent between homebrew installs - but surely that's a YAGNI
+2. elaborate data portability work (see above) - maybe that's too complicated though

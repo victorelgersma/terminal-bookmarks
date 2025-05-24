@@ -1,2 +1,7 @@
-- [ ] newline between every line
-- [ ] higlight the pattern matched text 
+
+# Todo 
+
+- [ ] github actions workflow on publish - after I publish a release I should immediately be able to install it with brew
+- [ ] read BOOKMARK_STORE as an environment variable, and if that isn't given resort to using the one in 
+- [x] newline between every line
+- [x] higlight the pattern matched text 
