@@ -17,7 +17,10 @@ cd bookmarks
 
 ## Installation
 
-coming soon
+```sh
+brew tap victorelgersma/terminal-bookmarks
+brew install bm
+```
 
 ## Interface
 
