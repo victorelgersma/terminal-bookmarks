@@ -82,6 +82,18 @@ You can override this location by setting the `BM_STORE` environment variable:
 export BM_STORE=~/my_custom_bookmarks.txt
 ```
 
+## Customizing the Data Store Location
+
+By default, `bm` stores your bookmarks in `~/.bm_bookmarks.txt`.  
+If you want to use a different file or location, you can override this by setting the `BM_STORE` environment variable:
+
+```sh
+export BM_STORE=~/my_custom_bookmarks.txt
+```
+
+After setting this variable, all `bm` commands will read from and write to your chosen file.  
+This is useful if you want to sync your bookmarks file with cloud storage, use a project-specific store, or keep multiple sets of bookmarks.
+
 ## Future work
 
 ## Issues
