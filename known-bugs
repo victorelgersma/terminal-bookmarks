@@ -1,0 +1,11 @@
+
+# Failing silently
+
+Test-term doesn't get added - should tell the user this
+
+```
+➜  bookmarks git:(feature-env-var) ✗ ./bm.sh add test-url test-term
+Enter description: test term
+✅ saved "test-url" to /Users/victor.elgersma41/.bm_bookmarks.txt
+➜  bookmarks git:(feature-env-var) ✗ 
+```

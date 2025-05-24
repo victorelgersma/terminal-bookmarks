@@ -6,15 +6,6 @@ terminal bookmarks  - the last bookmarking app you'll need.
 - Bash (or zsh)
 - grep (standard on Unix-like systems)
 
-## Quick Start
-
-```sh
-git clone <repo-url>
-cd bookmarks
-./bm add "https://example.com" -c "example description"
-./bm get "example"
-```
-
 ## Installation
 
 ```sh
@@ -57,9 +48,13 @@ http://platform.thgaltitude.com/api/auth/login?organization=org_4TqhCcWuZx2a7nHX
 https://platform.thgaltitude.com/api/auth/login?organization=org_8K8E4aGjlodAAJXP # the other platform org
 ```
 
-## editing bookmarks
+## Editing bookmarks
 
-If you really need to edit links or bookmarks you can manually run vim/bookmarks.txt to find the bookmarks you want
+To manually edit your bookmarks, open the store file in your editor:
+
+```sh
+vim "${BM_STORE:-$HOME/.bm_bookmarks.txt}"
+```
 
 ## Implementation 
 
@@ -78,9 +73,65 @@ A single entry might look like this:
 
 bm is powered by ripgrep and gets translated to rg -i under the hood 
 
-##  Data Store
-- a txt file. Not complicated
+## Data Store
+
+By default, bookmarks are stored in a plain text file at `~/.bm_bookmarks.txt`.  
+You can override this location by setting the `BM_STORE` environment variable:
+
+```sh
+export BM_STORE=~/my_custom_bookmarks.txt
+```
+
+## Customizing the Data Store Location
+
+By default, `bm` stores your bookmarks in `~/.bm_bookmarks.txt`.  
+If you want to use a different file or location, you can override this by setting the `BM_STORE` environment variable:
+
+```sh
+export BM_STORE=~/my_custom_bookmarks.txt
+```
+
+After setting this variable, all `bm` commands will read from and write to your chosen file.  
+This is useful if you want to sync your bookmarks file with cloud storage, use a project-specific store, or keep multiple sets of bookmarks.
 
 ## Future work
 
-- export as a brew package
+## Issues
+
+Now that it's a package rather than a repo, it's much harder to edit my bookmarks store. I can think of a few solutions
+
+1. find the place where bookmarks are kept and just use that - issue with this is that it might not be consistent between homebrew installs - but surely that's a YAGNI
+2. elaborate data portability work (see above) - maybe that's too complicated though
+
+- currently when I create a new release I need to manually adjust the homebrew-terminal-bookmarks repo to publish.
+
+## Local Development
+
+To work on `bm` locally (without Homebrew):
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/victorelgersma/terminal-bookmarks.git
+   cd terminal-bookmarks
+   ```
+
+2. **Make the script executable:**
+   ```sh
+   chmod +x bm.sh
+   ```
+
+3. **Run the script directly:**
+   ```sh
+   ./bm.sh add "https://example.com" -c "example description"
+   ./bm.sh get "example"
+   ```
+
+4. *(Optional)*: Add an alias for convenience:
+   ```sh
+   alias bm="$PWD/bm.sh"
+   ```
+
+5. *(Optional)*: Run tests or contribute changes as needed.
+
+**Note:**  
+By default, bookmarks will be stored at `~/.bm_bookmarks.txt` unless you set the `BM_STORE` environment variable.

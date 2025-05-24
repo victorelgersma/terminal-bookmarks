@@ -1,2 +1,4 @@
+# Decisions made
 
-- rg vs grep - can I do everything with grep? 
+Sat may 24
+- went with grep over rg for sake of unix compatibility and minimal dependencies

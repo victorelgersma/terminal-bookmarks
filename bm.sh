@@ -1,7 +1,6 @@
 #!/bin/bash
-# filepath: bm
 
-BOOKMARKS_FILE="data/bookmarks.txt"
+BOOKMARKS_FILE="${BM_STORE:-$HOME/.bm_bookmarks.txt}"
 
 mkdir -p data
 
@@ -22,6 +21,10 @@ case "$1" in
     shift
     if [ $# -eq 0 ]; then
       echo "Usage: bm get <search-term>"
+      exit 1
+    fi
+    if [ ! -f "$BOOKMARKS_FILE" ]; then
+      echo "No bookmarks file found at $BOOKMARKS_FILE"
       exit 1
     fi
     grep --color=always -i "$*" "$BOOKMARKS_FILE" | awk '{print; print ""}'

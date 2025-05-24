@@ -1,2 +1,16 @@
-- [ ] newline between every line
-- [ ] higlight the pattern matched text 
+# TODO 
+
+## Future work
+- [ ] gifs on the readme
+- [ ] add regression test on PR workflow
+
+## In development
+
+- [ ] github actions workflow on publish - after I publish a release I should immediately be able to install it with brew
+
+## Next release
+- [ ] read BM_STORE as an env var defaulting to ~/.bm_bookmarks.txt
+
+## Released
+- [x] newline between every line
+- [x] higlight the pattern matched text 
