@@ -1,4 +1,4 @@
+# Decisions made
 
-Advantage of rg is that it's fast
-Advantage of grep is that its posix compliant and I wont need 
-- rg vs grep - can I do everything with grep? 
+Sat may 24
+- went with grep over rg for sake of unix compatibility and minimal dependencies
