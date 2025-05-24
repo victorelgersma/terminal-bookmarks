@@ -1,8 +1,12 @@
+# TODO 
 
-# Todo 
+## Future work
+- [ ] gifs on the readme
+- [ ] add regression test on PR workflow
+
+## In development
 
 - [ ] github actions workflow on publish - after I publish a release I should immediately be able to install it with brew
-- [ ] add regression test on PR workflow
 
 ## Next release
 - [ ] read BM_STORE as an env var defaulting to ~/.bm_bookmarks.txt
