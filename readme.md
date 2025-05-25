@@ -37,16 +37,6 @@ $ enter descritption
 my description here
 ```
 
-```sh
-$ bm get "altitude"
-https://docs.thgaltitude.com/getting-started/ # deprecated altitude docs
-
-https://github.com/THG-AltitudeSiteBuilds/ # thg altitude docs
-
-http://platform.thgaltitude.com/api/auth/login?organization=org_4TqhCcWuZx2a7nHX # altitude platform - THG ingenuity org 
-
-https://platform.thgaltitude.com/api/auth/login?organization=org_8K8E4aGjlodAAJXP # the other platform org
-```
 
 ## Editing bookmarks
 
@@ -56,22 +46,6 @@ To manually edit your bookmarks, open the store file in your editor:
 vim "${BM_STORE:-$HOME/.bm_bookmarks.txt}"
 ```
 
-## Implementation 
-
-### Adding
-
-adding is done by appending the link and the description on one line to data/bookmarks.txt
-
-A single entry might look like this:
-
-```txt
-// data/bookmarks
-248:https://www.platform.thgaltitude.com/sites/clrhr6i130023mc01992vyajq/environments/single-tenanted # single tenancy env nutrition
-```
-
-### Retrieving
-
-bm is powered by ripgrep and gets translated to rg -i under the hood 
 
 ## Data Store
 
