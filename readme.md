@@ -2,9 +2,7 @@
 
 terminal bookmarks  - the last bookmarking app you'll need. 
 
-## Requirements
-- Bash (or zsh)
-- grep (standard on Unix-like systems)
+<img src="./bm-demo.gif" alt="Terminal Bookmarks Demo" width="100%" />
 
 ## Installation
 
@@ -12,6 +10,12 @@ terminal bookmarks  - the last bookmarking app you'll need.
 brew tap victorelgersma/terminal-bookmarks
 brew install bm
 ```
+
+## Requirements
+- Bash (or zsh)
+- grep (standard on Unix-like systems)
+
+
 
 ## Interface
 
