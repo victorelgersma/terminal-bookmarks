@@ -1,6 +1,7 @@
 # TODO 
 
 ## Future work
+- [ ] don't allow me to enter nothing when I press `bm add`
 - [ ] gifs on the readme
 - [ ] add regression test on PR workflow
 

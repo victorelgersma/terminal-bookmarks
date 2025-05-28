@@ -50,16 +50,6 @@ To manually edit your bookmarks, open the store file in your editor:
 vim "${BM_STORE:-$HOME/.bm_bookmarks.txt}"
 ```
 
-
-## Data Store
-
-By default, bookmarks are stored in a plain text file at `~/.bm_bookmarks.txt`.  
-You can override this location by setting the `BM_STORE` environment variable:
-
-```sh
-export BM_STORE=~/my_custom_bookmarks.txt
-```
-
 ## Customizing the Data Store Location
 
 By default, `bm` stores your bookmarks in `~/.bm_bookmarks.txt`.  

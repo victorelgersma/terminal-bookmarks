@@ -7,6 +7,12 @@ mkdir -p data
 case "$1" in
   add)
     URL="$2"
+    # Fix: Prevent adding empty URL
+    if [ -z "$URL" ]; then
+      echo "😳 you forgot to enter a bookmark, please try again."
+      echo "Usage: bm add <url> -c <description>"
+      exit 1
+    fi
     shift 2
     if [[ "$1" == "-c" ]]; then
       DESC="$2"
