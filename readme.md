@@ -1,46 +1,25 @@
 # Terminal Bookmarks
 
-terminal bookmarks - the last bookmarking app you'll need.
+A text-only, CLI-based bookmark manager.
 
 <img src="./bm-demo.gif" alt="Terminal Bookmarks Demo" width="100%" />
 
-## Installation
+## Quickstart
 
 ```sh
 brew tap victorelgersma/terminal-bookmarks
 brew install bm
 ```
 
-## Requirements
-
-- Bash (or zsh)
-- grep (standard on Unix-like systems)
-
-## Interface
-
-We expose the commands bm add and get
-
-the syntax of bm add is somewhat similar to git
+## Adding your first bookmark
 
 ```sh
-$ bm add
-Usage: bm add <url> -c <description>
+$ bm add https://www.google.com
+Enter descritption: Google
+$ ✅ saved "https://www.google.com" to /Users/victor.elgersma41/.bm/bookmarks.txt
 ```
 
-```sh
-$ bm add "https://www.theguardian.com/education/2025/may/24/children-with-special-needs-in-england-may-lose-legal-right-to-school-support" -c "guardian article which I need for x y z project"
-✅ saved "https://www.theguardian.com/education/2025/may/24/children-with-special-needs-in-england-may-lose-legal-right-to-school-support" to data/bookmarks.txt
-```
-
-if passed without a c flag it will prompt you for a description
-
-```sh
-$ bm add "your  url"
-$ enter descritption
-my description here
-```
-
-### Get a random bookmark
+## Get a random bookmark
 
 ```sh
 $ bm get-random
@@ -102,13 +81,5 @@ To work on `bm` locally (without Homebrew):
    ./bm.sh get "example"
    ```
 
-4. _(Optional)_: Add an alias for convenience:
-
-   ```sh
-   alias bm="$PWD/bm.sh"
-   ```
-
-5. _(Optional)_: Run tests or contribute changes as needed.
-
 **Note:**  
-By default, bookmarks will be stored at `~/.bm_bookmarks.txt` unless you set the `BM_STORE` environment variable.
+By default, bookmark location is `BM_STORE`, which by default is at `~/.bm/bookmarks.txt` unless you override it.

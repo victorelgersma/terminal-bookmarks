@@ -10,16 +10,11 @@ case "$1" in
     # Fix: Prevent adding empty URL
     if [ -z "$URL" ]; then
       echo "😳 you forgot to enter a bookmark, please try again."
-      echo "Usage: bm add <url> -c <description>"
+      echo "Usage: bm add <url>"
       exit 1
     fi
-    shift 2
-    if [[ "$1" == "-c" ]]; then
-      DESC="$2"
-    else
-      echo -n "Enter description: "
-      read DESC
-    fi
+    echo -n "Enter description: "
+    read DESC
     echo "$DESC # $URL" >> "$BOOKMARKS_FILE"
     echo "✅ saved \"$URL\" to $BOOKMARKS_FILE"
     ;;
@@ -54,8 +49,7 @@ case "$1" in
     ;;
   *)
     echo "Usage:"
-    echo "  bm add <url> -c <description>"
-    echo "  bm add <url>   # will prompt for description"
+    echo "  bm add <url>"
     echo "  bm get <search-term>"
     echo "  bm get-random"
     ;;
