@@ -22,7 +22,14 @@ case "$1" in
     fi
     echo -n "Enter description: "
     read DESC
-    echo "$DESC # $URL" >> "$BOOKMARKS_FILE"
+    # Check for empty description
+    if [ -z "$DESC" ]; then
+      echo "😳 you forgot to enter a description, please try again."
+      exit 1
+    fi
+    echo "" >> "$BOOKMARKS_FILE"
+    echo "$DESC:" >> "$BOOKMARKS_FILE"
+    echo "$URL" >> "$BOOKMARKS_FILE"
     echo "✅ saved \"$URL\" to $BOOKMARKS_FILE"
     ;;
   get)
@@ -35,7 +42,7 @@ case "$1" in
       echo "No bookmarks file found at $BOOKMARKS_FILE"
       exit 1
     fi
-    grep --color=always -i "$*" "$BOOKMARKS_FILE" | awk '{print; print ""}'
+    grep --color=always -i -A1 "$*" "$BOOKMARKS_FILE" | awk '{print; print ""}'
     ;;
   get-random)
     if [ ! -f "$BOOKMARKS_FILE" ]; then
@@ -46,13 +53,18 @@ case "$1" in
       echo "No bookmarks found in $BOOKMARKS_FILE"
       exit 1
     fi
-    # Filter out empty lines and select a random bookmark
-    RANDOM_LINE=$(grep -v '^[[:space:]]*$' "$BOOKMARKS_FILE" | shuf -n 1)
-    if [ -z "$RANDOM_LINE" ]; then
+    # Get all description lines (lines ending with :), then pick a random one
+    DESCRIPTION_LINES=$(grep ':$' "$BOOKMARKS_FILE")
+    if [ -z "$DESCRIPTION_LINES" ]; then
       echo "No valid bookmarks found in $BOOKMARKS_FILE"
       exit 1
     fi
-    echo "-> $RANDOM_LINE"
+    RANDOM_DESC=$(echo "$DESCRIPTION_LINES" | shuf -n 1)
+    LINE_NUM=$(grep -n "^$RANDOM_DESC$" "$BOOKMARKS_FILE" | cut -d: -f1)
+    URL_LINE=$((LINE_NUM + 1))
+    URL=$(sed -n "${URL_LINE}p" "$BOOKMARKS_FILE")
+    echo "-> $RANDOM_DESC"
+    echo "   $URL"
     ;;
   *)
     echo "Usage:"
