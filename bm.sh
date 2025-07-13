@@ -13,6 +13,13 @@ case "$1" in
       echo "Usage: bm add <url>"
       exit 1
     fi
+    # Check for too many arguments
+    if [ -n "$3" ]; then
+      echo "😳 too many arguments provided. Please provide only one URL."
+      echo "Usage: bm add <url>"
+      echo "Hint: If your URL contains spaces, wrap it in quotes"
+      exit 1
+    fi
     echo -n "Enter description: "
     read DESC
     echo "$DESC # $URL" >> "$BOOKMARKS_FILE"
