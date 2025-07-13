@@ -83,3 +83,9 @@ To work on `bm` locally (without Homebrew):
 
 **Note:**  
 By default, bookmark location is `BM_STORE`, which by default is at `~/.bm/bookmarks.txt` unless you override it.
+
+## Upgrading
+
+```sh
+$ brew upgrade
+```

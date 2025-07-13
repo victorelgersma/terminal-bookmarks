@@ -8,6 +8,7 @@
 - [ ] gifs on the readme
 - [ ] add regression test on PR workflow
 - [ ] turn this into a sqlite database
+- [ ] switch to npm for ease
 
 ## To deprecate
 
