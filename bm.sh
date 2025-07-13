@@ -20,7 +20,7 @@ case "$1" in
       echo -n "Enter description: "
       read DESC
     fi
-    echo "$URL # $DESC" >> "$BOOKMARKS_FILE"
+    echo "$DESC # $URL" >> "$BOOKMARKS_FILE"
     echo "✅ saved \"$URL\" to $BOOKMARKS_FILE"
     ;;
   get)
@@ -35,10 +35,28 @@ case "$1" in
     fi
     grep --color=always -i "$*" "$BOOKMARKS_FILE" | awk '{print; print ""}'
     ;;
+  get-random)
+    if [ ! -f "$BOOKMARKS_FILE" ]; then
+      echo "No bookmarks file found at $BOOKMARKS_FILE"
+      exit 1
+    fi
+    if [ ! -s "$BOOKMARKS_FILE" ]; then
+      echo "No bookmarks found in $BOOKMARKS_FILE"
+      exit 1
+    fi
+    # Filter out empty lines and select a random bookmark
+    RANDOM_LINE=$(grep -v '^[[:space:]]*$' "$BOOKMARKS_FILE" | shuf -n 1)
+    if [ -z "$RANDOM_LINE" ]; then
+      echo "No valid bookmarks found in $BOOKMARKS_FILE"
+      exit 1
+    fi
+    echo "-> $RANDOM_LINE"
+    ;;
   *)
     echo "Usage:"
     echo "  bm add <url> -c <description>"
     echo "  bm add <url>   # will prompt for description"
     echo "  bm get <search-term>"
+    echo "  bm get-random"
     ;;
 esac

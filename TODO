@@ -1,12 +1,17 @@
-# TODO 
+# TODO
 
 ## Future work
+
+- [ ] add ability to see ALL bookmarks
+- [ ] bm get-random should give me a random bookmark
 - [ ] don't allow me to enter nothing when I press `bm add`
 - [ ] gifs on the readme
 - [ ] add regression test on PR workflow
+- [ ] turn this into a sqlite database
 
-## To deprecate 
-- [ ] remove the -c flag, it jhust adds noise. 
+## To deprecate
+
+- [ ] remove the -c flag, it jhust adds noise.
 
 ## In development
 
