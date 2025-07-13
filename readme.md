@@ -31,7 +31,7 @@ $ bm get-random
 To manually edit your bookmarks, open the store file in your editor:
 
 ```sh
-vim "${BM_STORE:-$HOME/.bm/bookmarks.txt}"
+vim $BM_STORE
 ```
 
 ## Customizing the Data Store Location
