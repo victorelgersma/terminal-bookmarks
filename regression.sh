@@ -13,7 +13,7 @@ if [[ "$BM_STORE" == "$HOME/.bm_bookmarks.txt" ]]; then
 fi
 
 echo "Testing add..."
-./bm.sh add "https://example.com" -c "test bookmark"
+echo "test bookmark" | ./bm.sh add "https://example.com"
 
 echo "Testing get..."
 if ./bm.sh get "example" | GREP_COLOR=never grep -q "example"; then

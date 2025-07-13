@@ -1,58 +1,42 @@
 # Terminal Bookmarks
 
-terminal bookmarks  - the last bookmarking app you'll need. 
+A text-only, CLI-based bookmark manager.
 
 <img src="./bm-demo.gif" alt="Terminal Bookmarks Demo" width="100%" />
 
-## Installation
+## Quickstart
 
 ```sh
 brew tap victorelgersma/terminal-bookmarks
 brew install bm
 ```
 
-## Requirements
-- Bash (or zsh)
-- grep (standard on Unix-like systems)
-
-
-
-## Interface
-
-We expose  the commands bm add and get
-
-the syntax of bm add is somewhat similar to git 
+## Adding your first bookmark
 
 ```sh
-$ bm add 
-Usage: bm add <url> -c <description>
+$ bm add https://www.google.com
+Enter descritption: Google
+$ ✅ saved "https://www.google.com" to /Users/victor.elgersma41/.bm/bookmarks.txt
 ```
+
+## Get a random bookmark
 
 ```sh
-$ bm add "https://www.theguardian.com/education/2025/may/24/children-with-special-needs-in-england-may-lose-legal-right-to-school-support" -c "guardian article which I need for x y z project"
-✅ saved "https://www.theguardian.com/education/2025/may/24/children-with-special-needs-in-england-may-lose-legal-right-to-school-support" to data/bookmarks.txt
+$ bm get-random
+-> https://histography.io/ # crazy history timelines
 ```
-
-if passed without a c flag it will prompt you for a description
-
-```sh 
-$ bm add "your  url" 
-$ enter descritption
-my description here
-```
-
 
 ## Editing bookmarks
 
 To manually edit your bookmarks, open the store file in your editor:
 
 ```sh
-vim "${BM_STORE:-$HOME/.bm_bookmarks.txt}"
+vim $BM_STORE
 ```
 
 ## Customizing the Data Store Location
 
-By default, `bm` stores your bookmarks in `~/.bm_bookmarks.txt`.  
+By default, `bm` stores your bookmarks in `~/.bm/bookmarks.txt`.  
 If you want to use a different file or location, you can override this by setting the `BM_STORE` environment variable:
 
 ```sh
@@ -78,28 +62,24 @@ Now that it's a package rather than a repo, it's much harder to edit my bookmark
 To work on `bm` locally (without Homebrew):
 
 1. **Clone the repository:**
+
    ```sh
    git clone https://github.com/victorelgersma/terminal-bookmarks.git
    cd terminal-bookmarks
    ```
 
 2. **Make the script executable:**
+
    ```sh
    chmod +x bm.sh
    ```
 
 3. **Run the script directly:**
+
    ```sh
    ./bm.sh add "https://example.com" -c "example description"
    ./bm.sh get "example"
    ```
 
-4. *(Optional)*: Add an alias for convenience:
-   ```sh
-   alias bm="$PWD/bm.sh"
-   ```
-
-5. *(Optional)*: Run tests or contribute changes as needed.
-
 **Note:**  
-By default, bookmarks will be stored at `~/.bm_bookmarks.txt` unless you set the `BM_STORE` environment variable.
+By default, bookmark location is `BM_STORE`, which by default is at `~/.bm/bookmarks.txt` unless you override it.
